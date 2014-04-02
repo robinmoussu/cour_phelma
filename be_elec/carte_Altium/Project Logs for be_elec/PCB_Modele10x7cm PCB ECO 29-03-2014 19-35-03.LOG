@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=D0 Pin=U2-19
+Removed Pin From Net: NetName=D1 Pin=U2-20
+Removed Pin From Net: NetName=D2 Pin=U2-21
+Removed Pin From Net: NetName=D3 Pin=U2-22
+Removed Pin From Net: NetName=GND Pin=U2-23
+Removed Pin From Net: NetName=GND Pin=U2-24
+Removed Pin From Net: NetName=GND Pin=U2-25
+Removed Pin From Net: NetName=GND Pin=U2-26
+Added Pin To Net: NetName=GND Pin=U2-19
+Added Pin To Net: NetName=GND Pin=U2-20
+Added Pin To Net: NetName=D0 Pin=U2-23
+Added Pin To Net: NetName=D1 Pin=U2-24
+Added Pin To Net: NetName=D2 Pin=U2-25
+Added Pin To Net: NetName=D3 Pin=U2-26
+Added Pin To Net: NetName=P15 Pin=Afficheur_LCD-15
+Added Pin To Net: NetName=P15 Pin=U2-22
+Added Net: Name=P15
+Added Pin To Net: NetName=P16 Pin=Afficheur_LCD-16
+Added Pin To Net: NetName=P16 Pin=U2-21
+Added Net: Name=P16

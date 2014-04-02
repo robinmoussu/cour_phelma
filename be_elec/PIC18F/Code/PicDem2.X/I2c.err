@@ -1,0 +1,29 @@
+Error[1105] ../I2c.c 116 : symbol 'SSP1CON1' has not been defined
+Error[1101] ../I2c.c 116 : lvalue required
+Error[1105] ../I2c.c 116 : symbol 'SSP1STATbits' has not been defined
+Error[1151] ../I2c.c 116 : struct or union object designator expected
+Error[1101] ../I2c.c 116 : lvalue required
+Error[1105] ../I2c.c 116 : symbol 'SSP1CON3bits' has not been defined
+Error[1151] ../I2c.c 116 : struct or union object designator expected
+Error[1101] ../I2c.c 116 : lvalue required
+Error[1105] ../I2c.c 116 : symbol 'SSP1CON3bits' has not been defined
+Error[1151] ../I2c.c 116 : struct or union object designator expected
+Error[1101] ../I2c.c 116 : lvalue required
+Error[1205] ../I2c.c 116 : unknown member 'SSP1IF' in '__tag_66'
+Error[1131] ../I2c.c 116 : type mismatch in assignment
+Error[1105] ../I2c.c 135 : symbol 'SSP1BUFbits' has not been defined
+Error[1151] ../I2c.c 135 : struct or union object designator expected
+Error[1101] ../I2c.c 135 : lvalue required
+Error[1205] ../I2c.c 136 : unknown member 'SSP1IF' in '__tag_66'
+Error[1131] ../I2c.c 136 : type mismatch in assignment
+Error[1205] ../I2c.c 136 : unknown member 'SSP1IF' in '__tag_66'
+Error[1122] ../I2c.c 136 : scalar operand expected for '!' operator
+Warning[2066] ../I2c.c 136 : type qualifier mismatch in assignment
+Warning[2066] ../I2c.c 136 : type qualifier mismatch in assignment
+Error[1119] ../I2c.c 136 : scalar type expected in 'do..while' statement
+Error[1105] ../I2c.c 136 : symbol 'SSP1CON2bits' has not been defined
+Error[1151] ../I2c.c 136 : struct or union object designator expected
+Warning[2066] ../I2c.c 136 : type qualifier mismatch in assignment
+Warning[2066] ../I2c.c 136 : type qualifier mismatch in assignment
+Error[1105] ../I2c.c 142 : symbol 'SSP1BUFbits' has not been defined
+Error[1151] ../I2c.c 142 : struct or union object designator expected

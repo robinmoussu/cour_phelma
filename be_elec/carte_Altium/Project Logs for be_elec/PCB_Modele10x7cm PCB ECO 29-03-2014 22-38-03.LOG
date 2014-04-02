@@ -1,0 +1,3 @@
+Added Component: Designator=Poignard 8(Poignard)
+Added Pin To Net: NetName=VSS Pin=Poignard 8-1
+Added Member To Class: ClassName=projet Member=Component Poignard 8 Poignard

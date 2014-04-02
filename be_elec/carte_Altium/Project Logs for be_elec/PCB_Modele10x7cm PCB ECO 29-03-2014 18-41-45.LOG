@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=GND Pin=C7-1
+Removed Pin From Net: NetName=MCLR Pin=C7-2
+Removed Pin From Net: NetName=VCC Pin=R8-1
+Removed Pin From Net: NetName=MCLR Pin=R8-2
+Removed Member From Class: ClassName=projet Member=C7
+Change Component DesignItemId : Designator=R8 Old DesignItemId=Resistance New DesignItemId=Res2
+Change Component Footprint: Designator=R8 Old Footprint=cms805 New Footprint=res5_1/4W
+Change Component Comment : Designator=R8 Old Comment=10kohm New Comment=Res2
+Added Component: Designator=C3(CAPA2)
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=MCLR Pin=C3-2
+Added Pin To Net: NetName=MCLR Pin=R8-1
+Added Pin To Net: NetName=VCC Pin=R8-2
+Added Member To Class: ClassName=projet Member=Component C3 Cap2
+Added Room: Name=projet

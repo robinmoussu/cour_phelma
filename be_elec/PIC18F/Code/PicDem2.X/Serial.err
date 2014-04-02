@@ -1,0 +1,23 @@
+Error[1105] ../Serial.c 96 : symbol 'RCREG1' has not been defined
+Error[1105] ../Serial.c 145 : symbol 'SPBRGH1' has not been defined
+Error[1101] ../Serial.c 145 : lvalue required
+Error[1105] ../Serial.c 151 : symbol 'SPBRG1' has not been defined
+Error[1101] ../Serial.c 151 : lvalue required
+Error[1105] ../Serial.c 152 : symbol 'TXSTA1bits' has not been defined
+Error[1151] ../Serial.c 152 : struct or union object designator expected
+Error[1101] ../Serial.c 152 : lvalue required
+Error[1105] ../Serial.c 153 : symbol 'RCSTA1bits' has not been defined
+Error[1151] ../Serial.c 153 : struct or union object designator expected
+Error[1101] ../Serial.c 153 : lvalue required
+Error[1105] ../Serial.c 154 : symbol 'TXSTA1bits' has not been defined
+Error[1151] ../Serial.c 154 : struct or union object designator expected
+Error[1101] ../Serial.c 154 : lvalue required
+Error[1105] ../Serial.c 155 : symbol 'RCSTA1bits' has not been defined
+Error[1151] ../Serial.c 155 : struct or union object designator expected
+Error[1101] ../Serial.c 155 : lvalue required
+Error[1205] ../Serial.c 158 : unknown member 'TX1IE' in '__tag_65'
+Error[1131] ../Serial.c 158 : type mismatch in assignment
+Error[1205] ../Serial.c 159 : unknown member 'RC1IF' in '__tag_66'
+Error[1131] ../Serial.c 159 : type mismatch in assignment
+Error[1205] ../Serial.c 160 : unknown member 'TX1IF' in '__tag_66'
+Error[1131] ../Serial.c 160 : type mismatch in assignment

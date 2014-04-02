@@ -1,0 +1,4 @@
+## calcul du gain de l'amplificateur ##
+
+On sait que l'angle va varier entre -10° et +10°. Il va donc y avoir une variation de l'accélération de ±sin(10)=±0,17g. Le gain du capteur étant de 300mV/g, la tension variera entre ±1,02V. On veut que ΔVinput_can soit de 3V. Donc la gain de l'amplificateur devra être de ΔVinput_can/ΔVcapteur, soit de **3**.
+On peut donc déterminer la valeur de Rg = 49,4k/(G-1) = 24,6V au minimum.

@@ -1,0 +1,16 @@
+Added Component: Designator=Afficheur_LCD(HDR1X16H)
+Added Pin To Net: NetName=GND Pin=Afficheur_LCD-1
+Added Pin To Net: NetName=GND Pin=Afficheur_LCD-2
+Added Pin To Net: NetName=GND Pin=Afficheur_LCD-3
+Added Pin To Net: NetName=GND Pin=Afficheur_LCD-4
+Added Pin To Net: NetName=D3 Pin=Afficheur_LCD-5
+Added Pin To Net: NetName=D2 Pin=Afficheur_LCD-6
+Added Pin To Net: NetName=D1 Pin=Afficheur_LCD-7
+Added Pin To Net: NetName=D0 Pin=Afficheur_LCD-8
+Added Pin To Net: NetName=E Pin=Afficheur_LCD-9
+Added Pin To Net: NetName=RW Pin=Afficheur_LCD-10
+Added Pin To Net: NetName=RS Pin=Afficheur_LCD-11
+Added Pin To Net: NetName=V0 Pin=Afficheur_LCD-12
+Added Pin To Net: NetName=VCC Pin=Afficheur_LCD-13
+Added Pin To Net: NetName=GND Pin=Afficheur_LCD-14
+Added Member To Class: ClassName=projet Member=Component Afficheur_LCD Header 16H

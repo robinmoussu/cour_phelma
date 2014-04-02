@@ -1,0 +1,20 @@
+Logique
+=======
+
+
+Historique
+----------
+
+RISC::
+Reduced Integration Set Computer
+
+VLIW::
+Very Large Instruction Word
+
+NOTE: Théorème de Shannon : 
+Fech ≥ 2×Fmax
+
+
+/ vim: noremap û "!a2x logique1.txt -f pdf --icons --dblatex-opts='-V -T db2latex -I /etc/asciidoc/images/icons -P latex.output.revhistory=0' -d article -a lang=fr"
+// vim: set syntax=asciidoc:
+// vim: set nonu:
