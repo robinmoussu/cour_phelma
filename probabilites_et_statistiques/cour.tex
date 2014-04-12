@@ -1,0 +1,382 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\newcommand \differential[2] {
+    \frac{\mathrm{d} #1}{\mathrm{d}#2}
+}
+\newcommand \dd[1] {
+    \mathrm{#1}
+}
+
+\section{Probabilités et statistiques}
+
+\subsection{INTRODUCTION}
+
+au 17ème siècle PASCAL et DE FERMAT ont basé leur travaux sur la Théorie
+des jeux. =\textgreater{} À donné naissance à toutes la théorie
+combinatoire.
+
+Au 20ème siècle, KOLMOGOROV à formalisé les statistiques pour arriver au
+formalisme moderne. Ses travaux sont basés sur la théorie de la mesure).
+
+\subsubsection{Notion intuitive de probabilité}
+
+\begin{itemize}
+\item
+  Sur 1D6, la probabilité d'obtinir un 5 est de $\frac{1}{6}$ uniquement
+  si le dé est équilibré.
+\item
+  Soit N lancés de 1D6 équilibré. La probabilités d'obtenir un 5 n'est
+  valable que pour N grand.
+\end{itemize}
+
+\subsection{MESURE ET PROBABILITÉS}
+
+\subsubsection{Vocabulaire}
+
+Une Épreuve aléatoire $\Omega =$ \{résultats possibles\}\\$\omega_p =$
+résultats élémentaires
+
+\subsubsection{exemple du dé}
+
+$\omega_1 = 1, \omega_2 =2$\\$\Omega = \{ 1, 2, 3, 4, 5, 6 \}$\\$A \subset \Omega$
+évènements = résultats possibles
+
+$A$ = famille de $A_i$ vérifiant 3 règles :
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  $\Omega \in A$
+\item
+  $\forall A_i \in A, C_\Omega ^{A_i} \in A$
+\item
+  $\forall A_i \in A, i \in A_i \in A$
+\end{itemize}
+
+L'ensemble forme une tribut $A$
+
+\subsubsection{Définition}
+
+On associe à chaque $A_i \in A$ un nombre $\equiv$ probabilité
+
+\begin{displaymath}
+\begin{array}{r l}
+p: & A \rightarrow [O,1] \\
+   & A_i \rightarrow p(Ax) = \text{probabilité de réaliser} A_i \text{sur une épreuve.} \\
+\end{array}
+\end{displaymath}
+
+P vérifie 3 règles:
+
+\[A_i \exists A, p(\emptyset) = 0 \leq p(A_i) \leq 1 = p(\Omega)\]
+\[A_i \exists A, p(C_\Omega A_i) = 1 - p(A_i)\]
+\[A_i \exists A, i \in I p(U(i\in I) A_i)  = \sum_{i\in I} p(A_i)\]
+
+ssi les $A_i$ sont 2 à 2 disjoints.
+
+\subsubsection{exemple}
+
+dé à 6 faces
+
+\begin{displaymath}
+\begin{array}{r l}
+\Omega & = \{1,2,3,4,5,6\} \\
+A_1 & = \{\Omega, \emptyset\} \\
+A_2 & = \{\Omega, \emptyset, \{1,3,5\},\{2,4,6\}\} \\
+A_3 & = \{\Omega, \emptyset, \{1\}, \{2\}, \{2,3,4,5,6\}, \{1,3,4,5,6\}, \{1,2\}, \{1,4,5,6\}\} \\
+(\Omega, A, p) & \equiv \text{espace probabilisé}
+\end{array}
+\end{displaymath}
+
+\begin{tabular}{r l}
+$A_i$ et $A_j$ incompatible & $p(A_i \cap A_j) = 0$ \\
+$A_i$ et $A_j$ indépendants & $p(A_i \cap A_j) = p(A_i)\times p(A_j)$ \\
+Probabilité inconditionnelle & $p(A_i \mid A_j) = \frac{p(A_i \cap A_j)}{p(A_j)}$ \\
+\end{tabular}
+
+\begin{tabular}{r l}
+proba & $A_i$ conditionnelement à $A_j$ \\
+      & $A_i$ sachant $A_j$
+\end{tabular}
+
+\subsubsection{Loi des probabilités totales}
+
+partition $(A_i)$ de
+$\omega \in A \rightarrow \cup_i A_i = \Omega, \forall i \neq j, A_i \cap A_j = \emptyset$
+
+$\forall B \in A, p(B) = \sum\limits_{i\in I} p(B\mid A_i) p(A_i)$
+
+\subsubsection{Formules de Bayes}
+
+Partition $(A_i)$ de $\Omega$ : $\forall B \in A$
+
+\begin{displaymath}
+\begin{array}{r l}
+p(A_k \mid B) &= \frac{p(B \mid A_k) p(A_k)}{\sum_i p(B \mid A_i ) p(A_i)} \\
+              &= \frac{p(A_k \cap B)}{p(B)} \\
+\end{array}
+\end{displaymath}
+
+$B = \cup_i (B \cap A_i) \equiv$ partition de
+B.\\$\rightarrow p(B) = \sum_i p(B \cap A_i) = \sum_i p(A \mid A_i) p(A_i)$
+
+\subsubsection{Propriété de la mesure de proba}
+
+$\forall A_i$ et $A_j$ disjoints
+$p(A_i \cap A_j) = p(A_i) + p(A_j)$\\Dans le cas général
+:\\$p(A_i \cap A_j) = p(A_i) + p(A_j) -p(A_i \cap A_j)$
+
+\textbf{Voir schéma 1}
+
+\subsubsection{Exercice}
+
+Je cherche mon cours, que j'ai rangé dans mon bureau avec une
+probabilité p.~Le bureau possède 3 tiroirs semblables.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  J'ouvre le 1er tiroir \ldots{} en vain
+\item
+  j'ouvre le 2ème tiroir \ldots{} en vain
+\end{itemize}
+
+Quelle est la probabilité de le trouver dans le 3 ème tiroir ?
+
+Soit $A$ le cour dans le 3ème tiroir.\\Soit $B$ le cour ni dans le 1er,
+ni dans le 2ème.
+
+\begin{displaymath}
+\begin{array}{r l}
+p(A \mid B) &= \frac{p(A \cap B)}{p(B)} \\
+            &= \frac{p(A)}{p(B)} \text{ car A est compris dans B}
+\end{array}
+\end{displaymath}
+
+Au départ : $\Omega = \{\omega_1, \omega_2, \omega_3, \omega_0\}$\\avec
+$\omega_0 =$ pas dans le bureau.\\$\omega_i =$ dans le tiroir
+$i (i = 1,2,3)$
+
+La tribu utile sur cet exemple :
+
+\begin{displaymath}
+\begin{array}{r l}
+A_1 &= \{\Omega, \emptyset, \{\omega_1\}, \{\omega_2\}, \{\omega_1,\omega_2\}, \{\omega_2,\omega_3,\omega_0\},…\} \\
+A_2 &= \{\Omega, \emptyset, \{\omega_1,\omega_2\}, \{\omega_3,\omega_0\},\{\omega_0\}, \{\omega_3\},\{\omega_1,\omega_2,\omega_3\},\{\omega_0,\omega_1,\omega_2\}\} \\
+\end{array}
+\end{displaymath}
+
+Pour $A_2$, les probabilités sont respectivement de
+$\{1,0,\frac{2\cdot}{3},1-p+\frac{p}{3},1-p,\frac{p}{3},p,1-p+\frac{2\cdot p}{3}\}$
+
+\begin{displaymath}
+A_2' = \{\{\omega_3,\omega_0\},\emptyset,\{\omega_3\},\{\omega_0\}\}
+\end{displaymath}
+
+\subsection{VARIABLE ALEATOIRE RÉELLE CONTINUE}
+
+Soit une variable aléatoir x à valeurs sur $\mathbb{R}$
+
+\[ \Omega = \mathbb{R} \] \[ A_i \subset \Omega \]
+\[ A = \{A_i\} = tribu \]
+
+Les $A_i$ de base sont $]-\infty ; x ]$ $\hookrightarrow$ tribu
+Borclienne $\equiv \mathcal{B}_{\mathbb{R}}$
+
+\subsubsection{Fonction de répartition de la variable aléatoire x}
+
+\begin{displaymath}
+\begin{array}{rl}
+F_x : &\mathbb{R} \rightarrow [0,1] \\
+&x \in \mathbb{R} \rightarrow \text{proba} (x \in ]-\infty, x]) \\
+\end{array}
+\end{displaymath}
+
+Il existe 3 types de variables aleatoires.
+
+\begin{tabular}{l l}
+- continue : &$F_x$ est continue. **cf fig 2** \\
+- discrete : &$F_x$ est continue par morceaux. **cf fig 3** \\
+- mixte : &(ex: temps d'attente à un feu) **cf fig 3** \\
+\end{tabular}
+
+propritétés de $F_x$ : \[\forall x \in \mathbb{R}\]
+\[F_x (-\infty) \leq F_x (x) \leq 1 = F_x (+\infty)\]
+\[F_x \text{ est croissante}\] \[\forall a, b \in \mathbb{R}, a \leq b\]
+\[F_x(b) - F_x()\] \[]-\infty, b] \  ]-\infty, a]\]
+
+\[F_x(x) = \int\limits_{-\infty}^{\infty} f_x (u) \mathrm{d}\]
+
+fct répartition
+\[f_x (x) = \differential{F_x}{x} \text{ (au sens des distributions)}\]
+
+Densité de probabilité $f_x = \differential{F_x}{x} \leq 0$i.\\$f_x$ est
+sommable :
+$\int_{\mathbb{R}} f_x (x) \mathrm{x} = 1 \rightarrow \hat{f_x}$ existe
+(le chapeau correspond à la transformée de Fourier).
+
+\begin{tabular} {ll}
+La probabilité de $(x \in ]a,b)$ &= $F_x(b) - F_x(a)$ \\
+&= $\int\limits_a^b F_x(x) \mathrm{d}x$ \\
+\end{tabular}
+
+\subsubsection{exemple}
+
+Loi uniforme sur {[}a,b{]}, avec b \textgreater{} a.
+
+$f_x$ est constante sur {[}a,b{]}, et nulle ailleurs
+
+\textbf{cf ex 5}
+
+\subsubsection{Loi de Gauss}
+
+C'est la même chose que la loi normale
+$\mathrm{N} (m,\sigma^2). $$F_x(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp{-\frac{x - m)^2}{2\sigma^2}}$\$
+
+\textbf{cf fig 6}
+
+NB : $F_x(x) \rightarrow$ table de loi
+
+\subsubsection{Loi de Cauchy (a\textgreater{}0)}
+
+\[f_x(x) = \frac{1}{\pi} \frac{a}{a^2 + x^2}\]
+\[F_x(x) = \frac{1}{2} + \frac{1}{\pi}\arctan{\frac{x}{a}}\]
+
+\subsubsection{Espérance mathématique d'une variable aléatoire x de
+densité de probabilité $f_x$}
+
+\boxed{E\{x\} = \int\limits_{\mathbb{R}} x f_x(x) \mathrm{d}}
+
+NB : peut ne pas exister.
+
+exemple : Cauchy $E(x)= +\infty$
+\[E\{g(x)\} = \int\limits_{\mathbb{R} g(x)f_x(x) \mathrm{d}}\]
+
+La fonction g doit être mesurable $\sim$ continue par morceaux, en
+particulier : $g(x) = x^n$
+\[E(x^n) = \int_{\mathbb{R}} x^n f_x(x) \mathrm{d}x\] On appelle cette
+fonction un moments d'ordre n.
+
+\begin{tabular}{l l}
+n = 1 & $\rightarrow \text{moyenne de } x$ \\
+n = 2 & $\rightarrow \text{dispertion de } x$ \\
+\end{tabular}
+
+Variance de x : $E\{[x-E(x)]^2\} = \text{var(x)}$ (NB: la partie entre
+crochet est une variable aléatoire x contrée).
+
+\begin{tabular}{r l}
+$\text{var}(x)$ &= $E(x^2) -E^2(x)$ \\
+&= $E\{x^2 - 2xE(x)+E^2(x)\}$ \\
+&= $E (x^2) - 2E(x)E(x) + E^2(x)$ \\
+&= $E (x^2) - E^2(x)$ \\
+\end{tabular}
+
+NB : $E$ est un opérateur binaire.
+
+\begin{tabular}{l l}
+E(x) &= $\int_\mathbb{R} x F_x(x) \mathrm{d}x$ \\
+E(ax + b) &= $\int_\mathbb{R} (ax+b)f_x(x)\mathrm{d}x$ \\
+&= $a\int_\mathbb{R} x f_x(x) \mathrm{d}x +b\int_\mathbb{R} x f_x(x) \mathrm{d}x$ \\
+\end{tabular}
+
+\subsubsection{Inégalité de Bienaginé - Chebychev}
+
+Variable aléatoire x de densité de probabilité $f_x$. La probabilité
+$(\lvert x - E(x)\rvert > a) \leq \frac{\sigma^2}{a^2}$
+
+\begin{tabular}{l l}
+$\sigma^2$ & $\equiv \text{var}(x)$ \\
+$\sigma$ & $\equiv \sqrt{\text{var}(x)}$ \\
+\end{tabular}
+
+$\sigma$ est l'écart type.
+
+\textbf{Cf démo dans le poly}
+
+\subsubsection{Changement de variable}
+
+v.a.x de la loi connue $f_x$.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Loi bijection croissante :
+\end{itemize}
+
+\[y = h(x)\] \[h \equiv \text{continue par morceaux}\]
+
+\textbf{cf fig 7}
+
+\begin{tabular}{r l}
+$F_y(y)$ &= $p(y \leq y)$ \\
+&= $p(x \leq h^{-1}(y))$ \\
+&= $F_x(h^{-1}(y))$ \\
+$F_y(y)$ &= $\differential{}{y} F_y(y)$ \\
+&= $\differential{}{x} F_x(h^{-1}(y)) \differential{}{y}h^{-1}(y)$ \\
+&= $f_x(h^{-1}(y))\differential{x}{y}$ \\
+\end{tabular}
+
+\subsection{DISCRETE}
+
+\subsection{VECTORIELLE}
+
+\subsection{REGRESSION}
+
+\subsection{THEOREMES AUX LIMITES}
+
+\subsection{ESTIMATION PARAMÈTREQUE}
+
+\subsection{TESTS D'HYPETHÉSES}
+
+\subsection{Références}
+
+BASS : Éléments de calcul des probabilités MASSON VENTETSEL : Théorie
+des probabilités MIR RÉNYI : Calcul des probabilités MASSON (I.GABAY)
+JAFFARD : Méthodes de la statistique MASSON Série SCHAUM chamilo
+
+\end{document}

@@ -3,12 +3,15 @@
 # FILE:     cour.mkd
 # ROLE:     Cour de probabilités et statistiques
 # CREATED:  2014-03-24 13:34:50
-# MODIFIED: 2014-03-31 16:50:20
+# MODIFIED: 2014-04-11 12:36:53
 # CONTACT:  eric.moisan@gipsa-lab.grenoble-inp.fr
 -->
 
 \newcommand \differential[2] {
     \frac{\mathrm{d} #1}{\mathrm{d}#2}
+}
+\newcommand \dd[1] {
+    \mathrm{#1}
 }
 
 Probabilités et statistiques
@@ -17,7 +20,7 @@ Probabilités et statistiques
 
 ## INTRODUCTION ##
 
-Au 17ème siècle PASCAL et DE FERMAT ont basé leur travaux sur la Théorie des jeux.
+au 17ème siècle PASCAL et DE FERMAT ont basé leur travaux sur la Théorie des jeux.
 => À donné naissance à toutes la théorie combinatoire.
 
 Au 20ème siècle, KOLMOGOROV à formalisé les statistiques pour arriver au formalisme moderne. Ses travaux sont basés sur la théorie de la mesure).
@@ -331,6 +334,169 @@ $$ x_2 = \pi - x_1$$
 $$ x_2 = \pi - \arcsin(\frac{y}{a})$$
 $$\Rightarrow |\differential{x}{y}|_{x = x_2} = |\differential{x}{y}|_{x = x_2} = \frac{\frac{1}{a}}{\sqrt{1-\frac{y^2}{a^2}}}$$
 
+### Rappels ###
+
+$$F_x(x) = \text{proba} (X \leq x)$$
+$$f_x(x) = \differential{F_x}{x} \text{d.d.p.}$$
+$$E(g(x)) = \int_\mathrm{R} g(x) f_x(x) \dd x$$
+$$f_x(x) \dd x = 1 et f_x (x) \geq 0$$
+f_x chapeau (V), TF de f_x (x) existe###################
+
+### Fct caractérisques ###
+ 
+
+$$\phi_x : \mathrm{R} \rightarrow \mathrm{C}$$
+$$ t \rightarrow E\{e^{itx}\}$$
+
+<!--#############-->
+
+$$\differential{k}{t^k} \phi_x(t) = \int\mathrm{R} (ix)^k e^{itx} f_x (x) \dd x$$
+$$\phi_x ^{(k)} (0) = i^k \int\mathrm{R} x^k f_x(x) \dd x (\text{avec le contenue de l'intégrale = }E(x^k) )$$
+
+Si la v.a.x possède des moments jusqu'à l'ordre k, sa fonction caractéristique est k fois dérivable en t=° et $\phi^{(k)}_x(0) = i^k E(x^k)$.
+
+Ex : Loi gaussienne
+
+\begin{displaymath}
+\begin{array}{r l}
+X \rightarrow \mathcal{N} (m, \sigma^2) \\
+f_x(x) &= \frac{1}{\sigma\sqrt{2\pi}} \exp{-\frac{(x-m)^2}{2\sigma^2}} \\
+\phi_x (t) &= e^{itm} e^{-t^2\sigma^2/2} \\
+\end{array}
+\end{displaymath}
+
+$\infty$ dérivale en t=0.
+
+$\rightarrow E(x^k)$ existe $\forall k$
+$$E(x) = \int\mathrm{R} x f_x(x)\dd x$$
+$$= ...$$
+$$= m$$
+
+$$\phi_x'(t) = ime^{itm}e^{-t^2\sigma^2/2}$$
+$$= e^{itm} t\sigma^2 e^{-t^2\sigma^2/2}$$
+$$\phi_x'(0) = \Im$$
+
+**$Var(x) = E(x^2) - E^2(x)$**
+
+Ex: Loi de Cauchy
+$$f_x (x) = \frac{1}{\pi} \frac{a}{a^2 + x^2}$$
+$$a \in \mathrm {R}$$
+$$\forall k \in \mathrm {N^*} E(x^k = ... = \infty$$
+$$\phi_x(t) = e^{-a|t|}$$
+
+## V.A. RÉELLE DISCRETE ##
+v.a.x d valeurs dans $\mathrm{R}$, mais :
+
+\begin{align*}
+\Omega &= \{x_1,x_2,...,x_n\} \\
+&= \{x_i, i\in \mathrm{I} \\
+\end{align*}
+
+### Fct répartition ### 
+ 
+
+$\forall x \in \mathrm{R} F_x(x) = \text{proba} (X \leq x)$
+
+$F_x$ est continue à droite, continue par morceux, en tout x.
+$$F_x(x_i) - \lim\limits{h\rightarrow 0^+} F_x (x-h) = proba (X = x_i)$$
+
+### densité de probabilité ###
+ 
+
+\begin{align*}
+F_X(x) &= \differential{F_x}{x} (x) \\
+f_X &= \differential{F_x}{x} \\
+&= \sum\limits_{i \in I} \text{ proba } X = x_i \delta_{x_i} \\
+\end{align*}
+
+### Moments ###
+
+
+$$E\{X^k\} = <f_x,x^k>$$
+$$=\sum\limits_{i \in I} p(X = x_i) x_i^k$$
+
+### Fonction Caractéristique ###
+ 
+
+$$\phi_x(t) = \sum\limits_{l \in {I}} p(x=x_l) e^{itx_1}$$
+
+### Exemple ###
+ 
+- Loi de Bernouilli ($p\in [0,1]$). x peut valoir 1 ou 0.
+
+ainsi :
+
+\begin{displaymath}
+\left \}
+\begin{array}{r l}
+\text{X = 1} &=p \\
+\text{X = 0} &= 1 - p \\
+\end{array}
+\right .
+\end{displaymath}
+
+$p = 1/2$
+Connu sous la loi de *pile ou face*.
+$$\forall k \in \mathrm{N^*}, E(x^k) = p$$
+$$\text{var}(x) = p - p^2$$
+$$Var (x) = p(1-p)$$
+**cf fig 10**
+
+$$ Y = \sum_{k=1}^n x_k$$
+Chaque $x_k$ suit une loi de Bernouilli (p). Les $X_k$ sont 2 à 2 indépendants. X suit une loi Binomiale (n,p).
+$$\forall y \in \{0,1,2, ...,n\} p(Y = y) C_n^y p^y (1-p)^{n-y}$$
+$$Y = y_i \Rightarrow y \text{présents} \rightarrow p^y$$
+$$n-y \text{absents} \rightarrow (1-p)^{n-y}$$
+
+nb :
+$$C_n^y = \frac{n!}{y!(n-y)!}$$
+$$A_n^y = \frac{n!}{(n-y)!}$$
+
+
+Maintenant $n\rightarrow \infty$, alors, comme $np = \lambda =\text{ constante } > 0$.
+$$ Y = \sum_{k=1}^n x_k$$
+C'est la loi de Poisson, qui ne dépand que de $\lambda$.
+$$p(Z=z) = e^{-\lambda} \frac{\lambda^z}{z!} \forall z\in\mathrm{N}$$
+$$E(X) = ... = \lambda$$
+$$\text{Var} (X) = ... = \lambda$$
+
+### V.A. Réelle vectorielle ###
+ 
+
+Permet de prendre en compte les éventuelles dépendances entre plusieures variables.
+
+#### Fct de répartition ####
+$$F_x (\overrightarrow{x}) = \text{proba} (X_1 \leq x_1, ... , X_n \leq x_m)$$
+
+Propriétés :
+$$0 = F_{\overrightarrow x} (-\infty, x_2, ... , x_n) \leq F_{\overrightarrow x} (\overrightarrow x) \leq 1 = F_{\overrightarrow x} (\infty, \infty, ... , \infty)$$
+- n = 2
+$$\text{proba} (a < x_1 \leq b, c< x_2 \leq d) = F_{x_1, x_2} (b,d) -F_{\overrightarrow x} (b,c) - F_{\overrightarrow x}(a,d) + F_{\overrightarrow x} (a,c)$$
+
+**cf fig 11**
+
+### Densité de probabilité ###
+ 
+
+$$f_{\overrightarrow x} = \frac{d^n}{d_{x_1},d_{x_2}, ... ,d_{x_n}} F_{\overrightarrow x} (\overrightarrow{x})$$
+- n = 2
+$$\text{proba} (a < x_1 \leq b, c < x_2 \leq d) = \int\limits_{x_1 \in ]a,b], x_2 \in ]c,d]} f_{\overrightarrow x} \dd x_1, \dd x_2$$
+
+### Lois marginales (n=2) ###
+ 
+
+couple de v.a. (x, y)
+$$F_{x,y} (x,y) \text{connue} \Rightarrow F_x (x) * F_{x,y} (x,\infty) $$
+de même
+$$f_x (x) = \differential{F_x (x)}{x} = \differential {}{x} F_{x,y} (x, \infty) = \int_\mathrm{R} f_{x,y} (x,y) \dd y$$
+
+### Indépendances - Loi conditionnelle ###
+ 
+
+Si x et y sont indépendantes alors $\forall (x,y) f_{x,y} (x,y) = f_x(x) \cdot f_y(y)$ et $f_{x,y} (x,y) = f_x(x)\cdot f_y(y)$
+
+Loi conditionnelle $f_{x|y} (x |y ) = \frac{f_{x,y} (x,y)}{f_y(y)}$. Formule des probabilités totales ;
+$$F_y(y) = \int\mathrm{R} f_{x,y} (x,y) \dd x = \int\mathrm{R} f_{y|x} (y|x) f_x (x) \dd x$$
 
 
 

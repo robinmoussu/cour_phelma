@@ -1,0 +1,7 @@
+
+\documentclass[12pt]{article}\title{My First \LaTeX{} Document!}
+\author{Jared Bernard}
+\date{December 25 2010}
+\begin{document}
+\maketitle Ubuntu is my favorite Linux distribution of all time! I can do anything in the CLI that you can do in a GUI plus more. So there..... (sticks tongue out at GUI).
+\end{document}
