@@ -500,12 +500,166 @@ $$F_y(y) = \int\mathrm{R} f_{x,y} (x,y) \dd x = \int\mathrm{R} f_{y|x} (y|x) f_x
 
 
 
-
 ## DISCRETE ##
 
 ## VECTORIELLE ##
 
-## REGRESSION ##
+
+## COURBES DE REGRESSION ##
+
+$\Rightarrow$ minimiser l'errer quadratique moyenne.
+
+On minimise $J = E \{ [y-g(x)^2]\}$
+
+1. Courbes de régression fonction g qui minimise J.
+
+Calcul variationnnel. $\rightarrow$
+
+\begin{align*}
+g(x) &= E_{y|x} (Y|X = x) \\
+g(x) &= \int_\Re y f_{y|x}(y|x) \mathrm{d}y \\
+\text{avec : } f_{y|x} (y|x) = \frac{f_{x,y} (x,y)}{f_x(x)} \\
+\end{align*}
+
+Remarque : h qui minimise $E\{[x-h(y)}^2]\}$
+$$h(y) = \int_\Re x f_{x|y}(x|y) \mathrm{d}x$$
+
+### Covariance – Corrélation ###
+
+Couple de variables aléatoires (x,y)
+Toute fonction h maximable définit une autre v.a. $z = h(x,y)$. En moyenne :
+$$E\{h(x,y)\} = \iint_{\Re^2} h(x,y) f_{x,y} (x,y) \mathrm{d}x \mathrm{d}y$$
+
+Moment croisé d'ordre 2 : $h(x,y) = xy \exists (x,y)$.
+
+__Théorème :__ Si X et Y possèdent des moments d'ordre 2, alors E(x,y) existent et vérifie:
+$$E^2 (x,y) \leq E(x^2) E(y^2)$$
+
+__Démo partielle :__ Si E(x,y) existe, $E\{(\alpha x +y)\}, \alpha \in \Re$
+$$\alpha^2 E(x^2) + 2 \alpha E(x,y) + E(y^2) \geq 0$$
+
+ 
+
+$$ 4 E^2(x,y) - 4 E(x^2) E(y^2) \leq 0$$
+
+\begin{align*}
+\left . x- E(x) \\
+        y- E(y) \right \} v.a centrées \\
+E^2(x,y) \leq E(x^2) E(y^2) \\
+E^2 ((x-E(x))(y-E(y))) \leq \var(x) \var(y) \\
+\end{align*}
+
+Covariance du couple (x,y)
+
+En pratique, on la calcule :
+$$ \cov(x,y) = E(x,y) - E(x)E(y)$$
+Comme de plus :
+\begin{align*}
+\cov^2(x,y) \leq \var(x) \var(y) \\
+\frac{\cov(x,y)}{\sqrt{\var(x)\var(y)}} = \frac{\cov(x,y)}{\sigma_x \sigma_y}, \in [-y, +y] \\
+\equiv \text{coefficiant de corréalation } r \\
+\end{align*}
+
+Cas particulier :
+Si x et y sont indépendants alors :
+\begin{align*}
+f_{x,y} (x,y) &= f_x(x) f_y(y) \\
+\rightarrow \cov(x,y) &= \iint_{\Re^2} [x-E(x)] [y-E(y)] f_{x,y} (x,y) \dd{x} \dd{y} \\
+&= 0\\
+\end{align*}
+
+\boxed{__NB :__ Indépendance $\Rightarrow \nRightarrow$ décorrélation}
+
+### Régression linéaire d'un couple de v.a.(x,y)###
+ 
+
+$f_{x,y}$ comme on cherche $g(x) \aprox y$ sous la forme $g(x) = ax+b$.
+
+Trouver les réels a et b qui minimisent :
+\begin{align*}
+J = \{[y-ax-b]^2\}
+\left { \frac{\delta J}{\delta a} = 0 \\
+        \frac{\delta J}{\delta b} = 0 \\
+\right .
+\frac{\delta J}{\delta a} = E \{f[y-ax-b] (-x)\} = 0
+\end{align*}
+
+$$\boxed{\left \{ 0 = E \{[y-ax-b]x\} \\ 0 = E \{[y-ax-b] 1\} \right \}$$
+
+\begin{align*}
+\left \{ E(yx) - a E(x^2) -b E(x) &= 0\\
+E(y) -a E(x) -b = 0 \right . \\
+\begin{bmatrix}  E(x^2) & E(x) \\ E(x) & 1 \end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} E(xy) \\ E(y) \end{bmatrix}
+\end{align*}
+
+det = var(x) que l'on suppose non nul car c'est sans intérêt.
+
+\begin{align*}
+a &= \frac{\begin{bmatrix} E(xy) & E(x) \\ E(y) & 1 \end{bmatrix}}{\var x} \\
+  &= \frac{E(xy) - E(x)E(y)}{\var (x)} \\
+  &= \frac{\cov (x,y)}{\var x} \\
+b &= E(y) - aE(x)
+\end{align*}
+
+\begin{align*}
+y &\equiv ax+b \\
+  &= \frac{\cov(x,y)}{\var(x)} (x-E(x)) +E(y) \\
+  &= \frac{r \sigma_x \sigma_y}{\sigma_x^2} (x-E(x)) + E(y) \\
+  \frac{y-E(y)}{\sigma_y} &\equiv r \frac
+
+  ##########
+
+  Cas particulier :
+\begin{align*}
+si r &= \pm 1 \\
+y &= ax+b
+si E\{[y-(ax+b)]^2\} &= 0
+y &= ax+b \text{ en moyenne quadratique}
+\left \{ E[y-ax+b)] &= 0 \\
+\var (y-(ax+b)) = 0 \right .
+\end{align*}
+
+### Exemple : ###
+ 
+
+On cherche x avec un appareil de mesure qui donne $y = x+b$ avec x et B indépendantes. On suppose :
+\begin{align*}
+B \leadsto& \mathrm{N} (m_B,\sigma_B^2) \\
+X \leadsto& \mathrm{N} (o, \sigma_x^2)
+\end{align*}
+
+coeff de corrélation y entre x et y ?
+
+\begin{align*}
+r &= \frac{\cov (x,y)}{\sigma_x \sigma_y}
+E(y) &= E(x+b) \\
+     &= E(x) + E(b) \\
+     &= m_B \\
+\var(y) &= E\{[y-E(y)]^2\} \\
+        &= E(y^2) -E^2(y)
+        &= E(x^2) + E[(B -m_b)^2] + 2E[x(B -m_B)] \\
+        &= \var(x) + \var(B) + \begen{matrix}2E(x) & E (B - m_B) \\ =0 & =0\end{matrix} \\
+        &= \sigma_x^2 + \sigma_y^2
+\end{align*}
+
+De plus :
+
+\begin{align*}
+\cov(x,y) &= E\{ [x - E(x)][y-E(y)]\} \\
+          &= E\{ x [x [ x + b - ]]}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## THEOREMES AUX LIMITES ##
 
